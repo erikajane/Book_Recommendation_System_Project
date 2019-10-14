@@ -32,7 +32,7 @@ The shape of the merged data is much larger than the shape of the ratings data, 
 
 The duplicates provide identical user_id and book_id data, as well as individual ratings and individual tags for each book. Since we are using the ratings from a separate data source, we don't need the individual ratings. We wrote a function to find the most common tag given to each book. This common tag was added as a feature and the duplicates were dropped along with the tag_names feature. 
 
-![Most_common_tag.png]()
+![Most_common_tag.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Most_common_tag.png)
 
 We kept the ratings csv data as the primary data and left merged the tag data. 
 
@@ -40,11 +40,11 @@ The ratings are given on a scale of 1 through 5. The data shows that users tend 
 
     Counter({4: 2139018, 5: 1983093, 3: 1370916, 2: 359257, 1: 124195})
 
-![Book_ratings_count.png]()
+![Book_ratings_count.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Book_ratings_count.png)
 
 The ratings per book show that a small minority of books are reviewed exponentially more than the average.
 
-![Reviews_per_book.png]()
+![Reviews_per_book.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Reviews_per_book.png)
   
     Most reviewed book:  The Hunger Games (The Hunger Games, #1), 217482 reviews
   
@@ -52,15 +52,15 @@ The ratings per book show that a small minority of books are reviewed exponentia
 
 The number of books reviewed by users is evenly spread.
 
-![Reviews_per_person.png]()
+![Reviews_per_person.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Reviews_per_person.png)
 
 The most popular tags on goodreads show that tagging is used for personal classification, rather than naming a specific genre. 
 
-![Tag_counts.png]()
+![Tag_counts.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Tag_counts.png)
 
 Some of the most popular books on goodreads are series. 
 
-![Title_count.png]()
+![Title_count.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Title_count.png)
   
 
 # Collaborative-Filtering Methods
