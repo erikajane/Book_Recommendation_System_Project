@@ -1,5 +1,68 @@
 # Book_Recommendation_System_Project
 
+Team project by Erika D'Auria & Jennifer McKaig
+
+## The Goal: 
+To recommend books to users that they will enjoy based on insights gained from available user generated data.
+
+## The Data: 
+Goodreads 10,000 most popular books rated by 53,424 people. 
+
+Files used: 
+  - ratings.csv
+  - book_tags.csv
+  - tags.csv
+  - books.csv
+
+https://github.com/zygmuntz/goodbooks-10k
+
+# Data Preprocessing & Exploratory Data Analysis
+
+We merged the book_tags, tags, and books files and created a new dataframe with features:
+  - book_id 
+  - tag_name
+  - author
+  - title
+  - language_code
+  - average_rating
+   
+The shape of the merged data is much larger than the shape of the ratings data, due to duplicates. 
+ - Merged data size:  (999912, 6)
+ - Ratings data size:  (5976479, 3)
+
+The duplicates provide identical user_id and book_id data, as well as individual ratings and individual tags for each book. Since we are using the ratings from a separate data source, we don't need the individual ratings. We wrote a function to find the most common tag given to each book. This common tag was added as a feature and the duplicates were dropped along with the tag_names feature. 
+
+![Most_common_tag.png]()
+
+We kept the ratings csv data as the primary data and left merged the tag data. 
+
+The ratings are given on a scale of 1 through 5. The data shows that users tend to review the books that they like more than the ones that they do not.
+
+    Counter({4: 2139018, 5: 1983093, 3: 1370916, 2: 359257, 1: 124195})
+
+![Book_ratings_count.png]()
+
+The ratings per book show that a small minority of books are reviewed exponentially more than the average.
+
+![Reviews_per_book.png]()
+  
+    Most reviewed book:  The Hunger Games (The Hunger Games, #1), 217482 reviews
+  
+    Least reviewed book: Kindle User's Guide,  8 reviews
+
+The number of books reviewed by users is evenly spread.
+
+![Reviews_per_person.png]()
+
+The most popular tags on goodreads show that tagging is used for personal classification, rather than naming a specific genre. 
+
+![Tag_counts.png]()
+
+Some of the most popular books on goodreads are series. 
+
+![Title_count.png]()
+  
+
 # Collaborative-Filtering Methods
 
 The collaborative-filtering methods used will attempt to predict how a user will rate a title with a five-star rating system.
@@ -26,7 +89,7 @@ The following memory-bases/neighborhood-based collaborative filtering models wil
 
 ![KNN_with_Means.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/KNN_with_Means.png)
 
-![KNN_Baseline.png](hhttps://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/KNN_Baseline.png)
+![KNN_Baseline.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/KNN_Baseline.png)
 
 The memory-based collaborative model that produced the lowest RMSE of __0.8370__ was the __KNN Baseline model__ utilizing a __pearson similarity metric__. This means, when this model is used to predict how a user will rate a title, it will be off by 0.8370 on average.
 
@@ -38,13 +101,13 @@ Next, a Singular Value Decomposition (SVD) model was tested.
 
 ![SVD.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/SVD.png)
 
-The __SVD model__ produced an even lower RMSE of __0.8299__. This means, when this model is used to predict how a user will rate a title, it will be off by 0.8299 on average.
+The __SVD model__ produced an even lower RMSE of __0.8299__. This means, when this model is used to predict how a user will rate a title, it will be off by 0.8299 on average. This was the best of the collaborative filtering models tested in this project.
 
-Below is an example of how this model predicted one user would rate a book.
+Below is an example of how this model predicted how one user would rate a book.
 
 ![SVD_example.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/SVD_example.png)
 
-The SVD model predicted that the user, with __user_id = 196__ would rate the book, with __book_id = 302__ 3.92 stars. This person had actually rated it 4 stars. The difference in prediction was 0.08 which is lower than the RMSE. This model had done very well in predicting how a user would rate a title in this example.
+The SVD model predicted that the user, with __user_id = 196__ would rate the book, with __book_id = 302__, 3.92 stars. This person had actually rated it 4 stars. The difference in prediction was 0.08 which is lower than the RMSE. This model had done very well in predicting how a user would rate a title in this example.
 
 # Content-Based Recommendations
 
