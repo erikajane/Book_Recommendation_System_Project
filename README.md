@@ -8,17 +8,17 @@ Since each title was assigned the most commonly used tag name for that book, eac
 
 Before employing the vectorizer, the data had to be converted into a signle string. The author's first and last names also needed to be concatenated so that the "Robert" in Robert Galbraith and Robert Jordan were not counted as the same "Robert". Each string was also set to lowercase.
 
-![Words_of_interest_code.png]()
-![Words_of_interest_data_preview.png]()
+![Words_of_interest_code.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Words_of_interest_code.png)
+![Words_of_interest_data_preview.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Words_of_interest_data_preview.png)
 
 Next, a count matrix is computed using __CountVectorizer()__. CountVectorizer was utilized over TF-IDF as each string in th words_of_interest column were relatively short. Each word was considered equally as important as the others and we did not want some authors or tag names to be have been weighted differently because they were present in the dataset more or less times than others. Using the count matrix a Cosine similarity matrix was able to be computed.
 
-![CountVectorize_CosineSimilarity.png]()
+![CountVectorize_CosineSimilarity.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/CountVectorize_CosineSimilarity.png)
 
 Using the Cosine similarity matrix, we created a function that would take an input title, find the top 10 titles most similar to that title.
 
-![Content_Recommendation_Function.png]()
+![Content_Recommendation_Function.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Content_Recommendation_Function.png)
 
 Below, are the top 10 recommendations that the recommendation system provided when given "The Hunger Games (The Hunger Games, #1)" as an input title.
 
-![Hunger_Games_Recommendations.png]()
+![Hunger_Games_Recommendations.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Hunger_Games_Recommendations.png)
