@@ -20,13 +20,13 @@ The following memory-bases/neighborhood-based collaborative filtering models wil
  
  Root Mean Squared Error (RMSE) was used as an evaluation metric for how well each model predicted what users would rate an item.
 
-![Similarity_metrics.png]()
+![Similarity_metrics.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Similarity_metrics.png)
 
-![Basic_knn.png]()
+![Basic_knn.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/Basic_knn.png)
 
-![KNN_with_Means.png]()
+![KNN_with_Means.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/KNN_with_Means.png)
 
-![KNN_Baseline.png]()
+![KNN_Baseline.png](hhttps://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/KNN_Baseline.png)
 
 The memory-based collaborative model that produced the lowest RMSE of __0.8370__ was the __KNN Baseline model__ utilizing a __pearson similarity metric__. This means, when this model is used to predict how a user will rate a title, it will be off by 0.8370 on average.
 
@@ -36,13 +36,13 @@ To see if a smaller RMSE could be produced another memory-based model was tested
 
 Next, a Singular Value Decomposition (SVD) model was tested.
 
-![SVD.png]()
+![SVD.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/SVD.png)
 
 The __SVD model__ produced an even lower RMSE of __0.8299__. This means, when this model is used to predict how a user will rate a title, it will be off by 0.8299 on average.
 
 Below is an example of how this model predicted one user would rate a book.
 
-![SVD_example.png]()
+![SVD_example.png](https://github.com/erikajane/Book_Recommendation_System_Project/blob/master/Images/SVD_example.png)
 
 The SVD model predicted that the user, with __user_id = 196__ would rate the book, with __book_id = 302__ 3.92 stars. This person had actually rated it 4 stars. The difference in prediction was 0.08 which is lower than the RMSE. This model had done very well in predicting how a user would rate a title in this example.
 
